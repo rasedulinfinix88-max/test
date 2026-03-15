@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopX Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-blue: #6366f1;
-            --text-dark: #1e224f;
-            --discount-red: #ff7070;
-            --bg-light: #f9faff;
+            --primary-purple: #615dfa;
+            --dark-navy: #1d2149;
+            --light-blue-bg: #eff3ff;
+            --coral-red: #ff7575;
         }
 
         * {
@@ -22,16 +23,17 @@
         }
 
         body {
-            background-color: white;
-            padding-bottom: 50px;
+            background-color: #ffffff;
+            color: var(--dark-navy);
+            overflow-x: hidden;
         }
 
-        /* Header */
+        /* --- Header --- */
         header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 12px 15px;
+            gap: 12px;
             background: #fff;
         }
 
@@ -40,286 +42,219 @@
             align-items: center;
             font-size: 22px;
             font-weight: 800;
-            color: #2D3277;
-            gap: 8px;
+            color: var(--dark-navy);
+            gap: 6px;
         }
 
         .logo i {
-            color: #6366f1;
+            color: var(--primary-purple);
             font-size: 24px;
         }
 
-        .search-container {
-            flex-grow: 1;
-            margin: 0 20px;
-            position: relative;
+        .search-bar {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #f0f2f8;
+            padding: 10px 15px;
+            border-radius: 30px;
+            gap: 10px;
         }
 
-        .search-container input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border-radius: 25px;
+        .search-bar i { color: #9ca3af; font-size: 16px; }
+        .search-bar input {
             border: none;
-            background: #f1f3f9;
+            background: transparent;
+            outline: none;
+            width: 100%;
             font-size: 14px;
+            color: #6b7280;
         }
 
-        .search-container i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
-
-        .cart-box {
+        .cart-icon {
             position: relative;
             font-size: 22px;
+            color: #000;
         }
 
-        .cart-badge {
+        .cart-count {
             position: absolute;
-            top: -5px;
+            top: -6px;
             right: -8px;
             background: #f97316;
             color: white;
             font-size: 10px;
+            font-weight: bold;
             padding: 2px 5px;
             border-radius: 50%;
-            font-weight: bold;
         }
 
-        /* Hero Banner */
-        .banner-wrapper {
-            padding: 0 15px;
-            margin-top: 10px;
+        /* --- Hero Banner (The Super Deals Section) --- */
+        .hero-section {
+            padding: 15px;
         }
 
-        .hero-banner {
-            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-            border-radius: 40px;
-            padding: 50px 20px;
+        .hero-card {
+            background: var(--light-blue-bg);
+            border-radius: 40px; /* High rounding as per image */
+            padding: 60px 20px;
             text-align: center;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .hero-banner h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--text-dark);
+        .hero-card h1 {
+            font-size: 44px;
+            font-weight: 900; /* Extra bold */
+            color: var(--dark-navy);
             line-height: 1.1;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
         }
 
-        .hero-banner .promo-text {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--discount-red);
-            margin-bottom: 25px;
+        .hero-card .discount {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--coral-red);
+            margin-bottom: 40px;
+            line-height: 1;
         }
 
         .shop-now-btn {
-            background: #6366f1;
+            background: var(--primary-purple);
             color: white;
-            padding: 14px 35px;
-            border-radius: 30px;
+            padding: 16px 35px;
+            border-radius: 35px;
             text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 25px rgba(97, 93, 250, 0.4);
         }
 
-        /* Categories */
-        .categories {
+        /* --- Categories --- */
+        .categories-container {
             display: flex;
+            gap: 20px;
             padding: 30px 15px;
-            gap: 25px;
             overflow-x: auto;
             scrollbar-width: none;
         }
 
-        .cat-item {
+        .cat-box {
+            min-width: 85px;
             text-align: center;
-            min-width: 80px;
         }
 
-        .cat-icon {
-            width: 70px;
-            height: 70px;
+        .cat-circle {
+            width: 75px;
+            height: 75px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-            margin: 0 auto 10px;
-            color: #6366f1;
-            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin: 0 auto 12px;
+            color: var(--primary-purple);
+            font-size: 26px;
+            border: 1px solid #f8f8f8;
         }
 
-        .cat-item p {
+        .cat-box span {
             font-size: 13px;
-            font-weight: 500;
-            color: #555;
+            font-weight: 600;
+            color: #666;
         }
 
-        /* Product Section */
-        .product-container {
+        /* --- Product Card --- */
+        .product-section {
             padding: 10px 20px;
         }
 
         .product-card {
-            background: white;
-            border-radius: 25px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border: 1px solid #f0f0f0;
+            border-radius: 30px;
+            padding: 25px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .product-card h2 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark-navy);
             margin-bottom: 20px;
         }
 
-        .product-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .product-img-box {
+        .img-placeholder {
             width: 100%;
-            height: 180px;
+            height: 140px;
             background: #f8fafc;
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
         }
 
-        .product-img-box i {
-            font-size: 60px;
-            color: #d1d5db;
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .hero-card h1 { font-size: 40px; }
+            .hero-card .discount { font-size: 46px; }
         }
-
-        .add-cart-btn {
-            width: 100%;
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        /* Bottom Nav (About Us, etc) */
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-top: 1px solid #eee;
-            margin-top: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #444;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-icons i {
-            font-size: 20px;
-            color: #6366f1;
-        }
-
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <i class="fas fa-shopping-bag"></i> ShopX
+            <i class="fas fa-shopping-basket"></i> ShopX
         </div>
-        <div class="search-container">
+        <div class="search-bar">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search products...">
         </div>
-        <div class="cart-box">
+        <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
-            <span class="cart-badge">3</span>
+            <span class="cart-count">3</span>
         </div>
     </header>
 
-    <div class="banner-wrapper">
-        <section class="hero-banner">
+    <section class="hero-section">
+        <div class="hero-card">
             <h1>Super<br>Deals!</h1>
-            <div class="promo-text">Up to 50% Off</div>
-            <a href="#" class="shop-now-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
-        </section>
-    </div>
-
-    <section class="categories">
-        <div class="cat-item">
-            <div class="cat-icon"><i class="fas fa-mobile-alt"></i></div>
-            <p>Phones</p>
-        </div>
-        <div class="cat-item">
-            <div class="cat-icon"><i class="fas fa-headphones"></i></div>
-            <p>Headphones</p>
-        </div>
-        <div class="cat-item">
-            <div class="cat-icon"><i class="fas fa-clock"></i></div>
-            <p>Watches</p>
-        </div>
-        <div class="cat-item">
-            <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
-            <p>Fashion</p>
+            <div class="discount">Up to 50% Off</div>
+            <a href="#" class="shop-now-btn">
+                Shop Now <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
-    <div class="product-container">
-        <div class="product-card">
-            <h3>Smartphone Pro</h3>
-            <div class="product-img-box">
-                <i class="fas fa-mobile-screen-button"></i>
-            </div>
-            <button class="add-cart-btn">Add to Cart <i class="fas fa-chevron-right"></i></button>
+    <div class="categories-container">
+        <div class="cat-box">
+            <div class="cat-circle"><i class="fas fa-mobile-screen"></i></div>
+            <span>Phones</span>
         </div>
-
-        <div class="product-card">
-            <h3>Smart Watch</h3>
-            <div class="product-img-box">
-                <i class="fas fa-stopwatch"></i>
-            </div>
-            <button class="add-cart-btn">Add to Cart <i class="fas fa-chevron-right"></i></button>
+        <div class="cat-box">
+            <div class="cat-circle"><i class="fas fa-headphones"></i></div>
+            <span>Headphones</span>
+        </div>
+        <div class="cat-box">
+            <div class="cat-circle"><i class="fas fa-clock"></i></div>
+            <span>Watches</span>
+        </div>
+        <div class="cat-box">
+            <div class="cat-circle"><i class="fas fa-tshirt"></i></div>
+            <span>Fashion</span>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-links">
-            <span>About Us</span>
-            <span>Contact</span>
-            <span>Support</span>
+    <section class="product-section">
+        <div class="product-card">
+            <h2>Smartphone Pro</h2>
+            <div class="img-placeholder"></div>
         </div>
-        <div class="social-icons">
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-        </div>
-    </footer>
+    </section>
 
 </body>
 </html>
