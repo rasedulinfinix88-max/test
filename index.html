@@ -5,376 +5,317 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopX Clone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --dark-blue: #1e1b4b;
-            --pink: #ff6b6b;
-            --bg-gray: #f8fafc;
+            --primary-blue: #6366f1;
+            --text-dark: #1e224f;
+            --discount-red: #ff7070;
+            --bg-light: #f9faff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
             background-color: white;
-            color: #333;
+            padding-bottom: 50px;
         }
 
-        /* --- Header --- */
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            border-bottom: 1px solid #f0f0f0;
-            position: sticky;
-            top: 0;
-            background: white;
-            z-index: 1000;
+            padding: 15px 20px;
+            background: #fff;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
-            color: var(--dark-blue);
-            gap: 5px;
+            color: #2D3277;
+            gap: 8px;
         }
 
-        .logo i { color: var(--primary); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
+        .logo i {
+            color: #6366f1;
+            font-size: 24px;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #666;
-            font-weight: 500;
-            transition: 0.3s;
+        .search-container {
+            flex-grow: 1;
+            margin: 0 20px;
+            position: relative;
         }
 
-        nav ul li a.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 25px;
+            border: none;
+            background: #f1f3f9;
+            font-size: 14px;
         }
 
-        .right-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .search-box {
-            background: #f3f4f6;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             color: #999;
         }
 
-        .cart-btn {
+        .cart-box {
             position: relative;
-            font-size: 20px;
-            color: #333;
+            font-size: 22px;
         }
 
-        .badge {
+        .cart-badge {
             position: absolute;
-            top: -8px;
-            right: -10px;
+            top: -5px;
+            right: -8px;
             background: #f97316;
             color: white;
-            font-size: 11px;
-            padding: 2px 6px;
+            font-size: 10px;
+            padding: 2px 5px;
             border-radius: 50%;
+            font-weight: bold;
         }
 
-        /* --- Hero Banner --- */
-        .hero-container {
-            padding: 20px 5%;
+        /* Hero Banner */
+        .banner-wrapper {
+            padding: 0 15px;
+            margin-top: 10px;
         }
 
         .hero-banner {
             background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-            border-radius: 30px;
-            padding: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-radius: 40px;
+            padding: 50px 20px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-content h1 {
-            font-size: 52px;
-            color: var(--dark-blue);
+        .hero-banner h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
             line-height: 1.1;
+            margin-bottom: 10px;
         }
 
-        .hero-content h2 {
-            font-size: 58px;
-            color: var(--pink);
-            margin: 10px 0 25px;
+        .hero-banner .promo-text {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--discount-red);
+            margin-bottom: 25px;
         }
 
-        .shop-now {
-            background: var(--primary);
+        .shop-now-btn {
+            background: #6366f1;
             color: white;
-            padding: 15px 35px;
+            padding: 14px 35px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
         }
 
-        .hero-mockup {
-            width: 400px;
-            height: 300px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 20px;
+        /* Categories */
+        .categories {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #888;
-            border: 2px dashed #ccd3ff;
-        }
-
-        /* --- Categories --- */
-        .categories-section {
-            padding: 30px 5%;
-            display: flex;
-            gap: 30px;
+            padding: 30px 15px;
+            gap: 25px;
             overflow-x: auto;
             scrollbar-width: none;
         }
 
         .cat-item {
             text-align: center;
-            min-width: 90px;
-            cursor: pointer;
+            min-width: 80px;
         }
 
-        .cat-circle {
-            width: 75px;
-            height: 75px;
+        .cat-icon {
+            width: 70px;
+            height: 70px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 10px;
-            color: var(--primary);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            margin: 0 auto 10px;
+            color: #6366f1;
             font-size: 24px;
-            transition: 0.3s;
         }
 
-        .cat-item:hover .cat-circle {
-            background: var(--primary);
-            color: white;
+        .cat-item p {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
         }
 
-        .cat-item p { font-size: 14px; font-weight: 500; color: #555; }
-
-        /* --- Product Grid --- */
-        .products-grid {
-            padding: 20px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
+        /* Product Section */
+        .product-container {
+            padding: 10px 20px;
         }
 
         .product-card {
-            background: #fff;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: left;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            border: 1px solid #f1f1f1;
-            transition: 0.3s;
+            background: white;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            margin-bottom: 20px;
         }
 
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .product-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
 
-        .product-card h3 { font-size: 18px; margin-bottom: 15px; }
-
-        .img-placeholder {
+        .product-img-box {
             width: 100%;
             height: 180px;
             background: #f8fafc;
-            border-radius: 15px;
-            margin-bottom: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            color: #cbd5e1;
-        }
-
-        .price-tag {
-            font-size: 22px;
-            font-weight: 800;
             margin-bottom: 15px;
-            display: block;
         }
 
-        .add-to-cart {
+        .product-img-box i {
+            font-size: 60px;
+            color: #d1d5db;
+        }
+
+        .add-cart-btn {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(90deg, #6366f1, #818cf8);
+            background: #6366f1;
             color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
             font-weight: 600;
-            cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
-        /* --- Footer --- */
+        /* Bottom Nav (About Us, etc) */
         footer {
-            margin-top: 50px;
-            padding: 40px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px;
             border-top: 1px solid #eee;
+            margin-top: 20px;
         }
 
-        .footer-nav a {
-            text-decoration: none;
-            color: #777;
-            margin-right: 25px;
+        .footer-links {
+            display: flex;
+            gap: 15px;
             font-size: 14px;
+            font-weight: 600;
+            color: #444;
         }
 
-        .socials { display: flex; gap: 15px; }
-        .socials i { color: #555; cursor: pointer; font-size: 18px; }
-
-        @media (max-width: 768px) {
-            .hero-banner { flex-direction: column; text-align: center; padding: 40px 20px; }
-            .hero-mockup { display: none; }
-            nav { display: none; }
+        .social-icons {
+            display: flex;
+            gap: 12px;
         }
+
+        .social-icons i {
+            font-size: 20px;
+            color: #6366f1;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <i class="fas fa-shopping-basket"></i> ShopX
+            <i class="fas fa-shopping-bag"></i> ShopX
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="active">Products</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Orders</a></li>
-            </ul>
-        </nav>
-        <div class="right-nav">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <span style="margin-left:10px">Search products...</span>
-            </div>
-            <div class="cart-btn">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge">3</span>
-            </div>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search products...">
+        </div>
+        <div class="cart-box">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge">3</span>
         </div>
     </header>
 
-    <div class="hero-container">
+    <div class="banner-wrapper">
         <section class="hero-banner">
-            <div class="hero-content">
-                <h1>Super<br>Deals!</h1>
-                <h2>Up to 50% Off</h2>
-                <a href="#" class="shop-now">Shop Now <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="hero-mockup">
-                <i class="fas fa-headphones-alt" style="font-size: 150px; color: #a5b4fc;"></i>
-            </div>
+            <h1>Super<br>Deals!</h1>
+            <div class="promo-text">Up to 50% Off</div>
+            <a href="#" class="shop-now-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
         </section>
     </div>
 
-    <div class="categories-section">
+    <section class="categories">
         <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-mobile-screen"></i></div>
+            <div class="cat-icon"><i class="fas fa-mobile-alt"></i></div>
             <p>Phones</p>
         </div>
         <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-headphones"></i></div>
+            <div class="cat-icon"><i class="fas fa-headphones"></i></div>
             <p>Headphones</p>
         </div>
         <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-clock"></i></div>
+            <div class="cat-icon"><i class="fas fa-clock"></i></div>
             <p>Watches</p>
         </div>
         <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-shirt"></i></div>
+            <div class="cat-icon"><i class="fas fa-tshirt"></i></div>
             <p>Fashion</p>
         </div>
-        <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-briefcase"></i></div>
-            <p>Accessories</p>
-        </div>
-        <div class="cat-item">
-            <div class="cat-circle"><i class="fas fa-gamepad"></i></div>
-            <p>Gaming</p>
-        </div>
-    </div>
+    </section>
 
-    <div class="products-grid">
+    <div class="product-container">
         <div class="product-card">
             <h3>Smartphone Pro</h3>
-            <div class="img-placeholder"><i class="fas fa-mobile-alt"></i></div>
-            <span class="price-tag">$799</span>
-            <button class="add-to-cart">Add to Cart <i class="fas fa-chevron-right"></i></button>
+            <div class="product-img-box">
+                <i class="fas fa-mobile-screen-button"></i>
+            </div>
+            <button class="add-cart-btn">Add to Cart <i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="product-card">
-            <h3>Wireless Headphones</h3>
-            <div class="img-placeholder"><i class="fas fa-headphones"></i></div>
-            <span class="price-tag">$149</span>
-            <button class="add-to-cart" style="background: #38bdf8;">Add to Cart <i class="fas fa-chevron-right"></i></button>
-        </div>
+
         <div class="product-card">
             <h3>Smart Watch</h3>
-            <div class="img-placeholder"><i class="fas fa-clock"></i></div>
-            <span class="price-tag">$199</span>
-            <button class="add-to-cart">Add to Cart <i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="product-card">
-            <h3>Gaming Console</h3>
-            <div class="img-placeholder"><i class="fas fa-gamepad"></i></div>
-            <span class="price-tag">$399</span>
-            <button class="add-to-cart">Add to Cart <i class="fas fa-chevron-right"></i></button>
+            <div class="product-img-box">
+                <i class="fas fa-stopwatch"></i>
+            </div>
+            <button class="add-cart-btn">Add to Cart <i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
     <footer>
-        <div class="footer-nav">
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-            <a href="#">Support</a>
+        <div class="footer-links">
+            <span>About Us</span>
+            <span>Contact</span>
+            <span>Support</span>
         </div>
-        <div class="socials">
-            <i class="fab fa-facebook-f"></i>
+        <div class="social-icons">
+            <i class="fab fa-facebook"></i>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
         </div>
