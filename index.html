@@ -3,186 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Fashion BD | Elite</title>
+    <title>Trendy Fashion BD | Elite Clone</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg: #070b14;
-            --card: rgba(20, 27, 45, 0.7);
+            --bg: #0a1120;
+            --card-bg: #111a2d;
             --gold: #fcc419;
-            --gold-glow: rgba(252, 196, 25, 0.2);
-            --text-main: #ffffff;
+            --text-white: #ffffff;
             --text-dim: #94a3b8;
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(17, 26, 45, 0.95);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); padding-bottom: 90px; overflow-x: hidden; }
+        body { background-color: var(--bg); color: var(--text-white); padding-bottom: 80px; }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
-        /* --- Header --- */
+        /* --- Header (Profile Removed) --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px; position: sticky; top: 0; 
-            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 20px; background: var(--bg); position: sticky; top: 0; z-index: 1000;
         }
-        .brand-logo { color: var(--gold); font-size: 32px; font-weight: 800; text-shadow: 0 0 15px var(--gold-glow); }
-        .brand-name h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.5px; }
-        .brand-name p { font-size: 11px; color: var(--text-dim); text-transform: uppercase; }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { color: var(--gold); font-size: 32px; font-weight: 800; }
+        .logo-text h1 { font-size: 18px; font-weight: 700; line-height: 1; }
+        .logo-text p { font-size: 11px; color: var(--text-dim); text-transform: uppercase; }
+        .header-icons { display: flex; gap: 15px; font-size: 20px; }
 
-        /* --- Search Bar Upgrade --- */
-        .search-container { padding: 10px 20px; }
-        .search-box {
-            background: var(--card); border: 1px solid var(--glass-border);
-            padding: 12px 18px; border-radius: 15px; display: flex; align-items: center; gap: 12px;
+        /* --- Dummy Banner --- */
+        .banner-container { padding: 15px; }
+        .dummy-banner {
+            width: 100%; height: 160px; border-radius: 20px;
+            background: linear-gradient(45deg, #1e40af, #3b82f6);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
         }
-        .search-box input { background: transparent; border: none; outline: none; color: white; width: 100%; font-size: 14px; }
+        .banner-text { text-align: center; z-index: 2; }
+        .banner-text h2 { font-size: 22px; font-weight: 800; }
+        .banner-circle { position: absolute; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; top: -30px; right: -30px; }
 
-        /* --- Categories (Smooth Scroll) --- */
-        .categories { display: flex; gap: 20px; padding: 25px 20px; overflow-x: auto; scrollbar-width: none; }
-        .categories::-webkit-scrollbar { display: none; }
-        .cat-card { min-width: 80px; text-align: center; transition: 0.3s; }
-        .cat-card:active { transform: scale(0.9); }
-        .cat-icon { 
-            width: 70px; height: 70px; background: white; border-radius: 22px; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 28px; color: #1e293b; margin-bottom: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid var(--gold);
+        /* --- Categories --- */
+        .cat-section { display: flex; justify-content: space-around; padding: 10px 0 20px; }
+        .cat-item { text-align: center; }
+        .cat-circle { 
+            width: 65px; height: 65px; background: #fff; border-radius: 50%; 
+            border: 2px solid var(--gold); display: flex; align-items: center; 
+            justify-content: center; margin-bottom: 8px; color: #333; font-size: 26px;
         }
+        .cat-item span { font-size: 11px; font-weight: 600; color: var(--text-dim); }
 
-        /* --- Product Cards (Elite Look) --- */
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
+        /* --- Products (Dummy Data) --- */
+        .section-title { padding: 0 20px 15px; font-size: 20px; font-weight: 700; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 15px; }
         .p-card { 
-            background: var(--card); border-radius: 24px; padding: 15px; 
-            border: 1px solid var(--glass-border); position: relative;
-            backdrop-filter: blur(10px); transition: 0.3s;
+            background: var(--card-bg); border-radius: 20px; padding: 12px; 
+            border: 1px solid rgba(255,255,255,0.05); position: relative;
         }
-        .p-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .p-img { 
-            width: 100%; height: 150px; background: #fff; border-radius: 18px; 
-            margin-bottom: 15px; display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
+        .p-img-box { 
+            width: 100%; height: 130px; background: #f8fafc; border-radius: 15px; 
+            margin-bottom: 12px; display: flex; align-items: center; justify-content: center; 
+            color: #cbd5e1; font-size: 50px;
         }
-        .p-img i { font-size: 60px; color: #cbd5e1; }
-        .p-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-        .p-price { font-size: 17px; font-weight: 800; color: var(--gold); }
+        .rating { color: var(--gold); font-size: 10px; margin-bottom: 5px; }
+        .p-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; display: block; }
+        .price-label { font-size: 11px; color: var(--text-dim); }
+        .price-now { font-size: 16px; font-weight: 800; color: var(--gold); margin: 2px 0; display: block; }
+        .price-old { font-size: 11px; color: var(--text-dim); text-decoration: line-through; }
         
-        .badge-discount { 
-            position: absolute; top: 15px; right: 15px; background: #ff4757; 
-            color: white; font-size: 10px; font-weight: 800; padding: 5px 10px; border-radius: 10px;
+        .discount-badge { 
+            position: absolute; top: 120px; right: 10px; background: #ef4444; 
+            color: white; font-size: 9px; font-weight: 800; width: 35px; height: 35px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            text-align: center; line-height: 1; border: 2px solid var(--card-bg);
         }
 
-        .btn-group { display: flex; gap: 8px; margin-top: 15px; }
-        .btn-main { 
-            flex: 1; padding: 10px; border-radius: 12px; border: none; font-weight: 700; font-size: 11px;
-            transition: 0.3s; cursor: pointer;
-        }
-        .btn-buy { background: var(--gold); color: #000; }
-        .btn-buy:active { background: #eab308; }
+        .p-btns { display: flex; gap: 6px; margin-top: 15px; }
+        .btn { flex: 1; border: none; padding: 8px 0; border-radius: 8px; font-size: 10px; font-weight: 700; cursor: pointer; }
+        .btn-cart { background: #fff; color: #000; }
+        .btn-view { background: #334155; color: #fff; }
 
-        /* --- Bottom Nav (Daraz Inspired) --- */
-        .bottom-nav { 
-            position: fixed; bottom: 0; width: 100%; background: rgba(22, 29, 49, 0.95);
-            backdrop-filter: blur(20px); display: flex; justify-content: space-around;
-            padding: 12px 0; border-top: 1px solid var(--glass-border); z-index: 2000;
+        /* --- Fixed Footer Nav --- */
+        .fixed-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--nav-bg); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-around; padding: 12px 0;
+            border-top: 1px solid rgba(255,255,255,0.1); z-index: 2000;
         }
-        .nav-item { text-decoration: none; color: var(--text-dim); text-align: center; position: relative; flex: 1; }
-        .nav-item i { font-size: 22px; display: block; margin-bottom: 4px; }
-        .nav-item span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
-        .nav-item.active { color: var(--gold); }
-        
-        /* Cart Counter Badge */
-        .cart-badge {
-            position: absolute; top: -5px; right: 25%; background: #ff4757;
-            color: white; font-size: 10px; width: 18px; height: 18px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            border: 2px solid var(--bg); font-weight: 800;
-        }
-
-        /* --- Footer Info --- */
-        .footer-info { background: #04060b; padding: 40px 20px; border-top: 1px solid var(--glass-border); }
-        .footer-col h4 { color: var(--gold); margin-bottom: 15px; font-size: 14px; }
-        .footer-col p { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+        .nav-link { text-align: center; color: var(--text-dim); text-decoration: none; flex: 1; position: relative; }
+        .nav-link i { font-size: 20px; display: block; margin-bottom: 4px; }
+        .nav-link span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
+        .nav-link.active { color: var(--gold); }
+        .cart-count { position: absolute; top: -5px; right: 28%; background: #ef4444; color: #fff; font-size: 9px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; }
     </style>
 </head>
 <body>
 
     <header>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="brand-logo">TF</div>
-            <div class="brand-name">
+        <div class="logo-box">
+            <div class="logo-icon">TF</div>
+            <div class="logo-text">
                 <h1>Trendy</h1>
                 <p>Fashion BD</p>
             </div>
         </div>
-        <div style="font-size: 22px; color: var(--gold);"><i class="far fa-bell"></i></div>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-bell"></i>
+        </div>
     </header>
 
-    <div class="search-container">
-        <div class="search-box">
-            <i class="fas fa-search" style="color: var(--gold);"></i>
-            <input type="text" placeholder="Search premium collection...">
+    <div class="banner-container">
+        <div class="dummy-banner">
+            <div class="banner-circle"></div>
+            <div class="banner-text">
+                <h2>FLASH SALE</h2>
+                <p>Up to 60% Off Today</p>
+                <button style="margin-top:10px; background: #fff; border:none; padding:5px 15px; border-radius:20px; font-weight:800; font-size:12px;">SHOP NOW</button>
+            </div>
         </div>
     </div>
 
-    <section class="categories">
-        <div class="cat-card"><div class="cat-icon"><i class="fas fa-user-tie"></i></div><span>Men</span></div>
-        <div class="cat-card"><div class="cat-icon"><i class="fas fa-shoe-prints"></i></div><span>Shoes</span></div>
-        <div class="cat-card"><div class="cat-icon"><i class="fas fa-gem"></i></div><span>Luxury</span></div>
-        <div class="cat-card"><div class="cat-icon"><i class="fas fa-shopping-bag"></i></div><span>Bags</span></div>
-        <div class="cat-card"><div class="cat-icon"><i class="fas fa-clock"></i></div><span>Watches</span></div>
+    <section class="cat-section">
+        <div class="cat-item"><div class="cat-circle"><i class="fas fa-tshirt"></i></div><span>Men's Wear</span></div>
+        <div class="cat-item"><div class="cat-circle"><i class="fas fa-shoe-prints"></i></div><span>Shoes</span></div>
+        <div class="cat-item"><div class="cat-circle"><i class="fas fa-socks"></i></div><span>Socks</span></div>
+        <div class="cat-item"><div class="cat-circle"><i class="fas fa-shopping-bag"></i></div><span>Bags</span></div>
     </section>
 
+    <h2 class="section-title">Our Products</h2>
     <div class="product-grid">
         <div class="p-card">
-            <div class="badge-discount">-52%</div>
-            <div class="p-img"><i class="fas fa-shirt"></i></div>
-            <span class="p-title">Slim Fit Shirt</span>
-            <span class="p-price">TK. 1,199</span>
-            <div class="btn-group">
-                <button class="btn-main btn-buy">BUY NOW</button>
+            <div class="p-img-box"><i class="fas fa-shirt"></i></div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>112 reviews</span></div>
+            <span class="p-name">Premium Slim Shirt</span>
+            <span class="price-label">Discount Price</span>
+            <span class="price-now">TK. 1,199</span>
+            <span class="price-old">Price TK. 2,499</span>
+            <div class="discount-badge">52%<br>OFF</div>
+            <div class="p-btns">
+                <button class="btn btn-cart">Add to Cart</button>
+                <button class="btn btn-view">View Details</button>
             </div>
         </div>
+
         <div class="p-card">
-            <div class="badge-discount">-30%</div>
-            <div class="p-img"><i class="fas fa-shoe-prints"></i></div>
-            <span class="p-title">Casual Sneakers</span>
-            <span class="p-price">TK. 2,499</span>
-            <div class="btn-group">
-                <button class="btn-main btn-buy">BUY NOW</button>
+            <div class="p-img-box"><i class="fas fa-shoe-prints"></i></div>
+            <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>85 reviews</span></div>
+            <span class="p-name">Casual Sneakers</span>
+            <span class="price-label">Discount Price</span>
+            <span class="price-now">TK. 1,599</span>
+            <span class="price-old">Price TK. 3,200</span>
+            <div class="discount-badge">50%<br>OFF</div>
+            <div class="p-btns">
+                <button class="btn btn-cart">Add to Cart</button>
+                <button class="btn btn-view">View Details</button>
             </div>
         </div>
     </div>
 
-    <footer class="footer-info">
-        <div class="footer-col">
-            <h4>Trusted Checkout</h4>
-            <p>We support bKash, Nagad, and all major cards. 100% secure payment gateway.</p>
-        </div>
-    </footer>
-
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
-            <i class="fas fa-home"></i>
+    <nav class="fixed-nav">
+        <a href="#" class="nav-link active">
+            <i class="fas fa-store"></i>
             <span>Shop</span>
         </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-badge">3</span>
+        <a href="#" class="nav-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">2</span>
             <span>Cart</span>
         </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-comment-alt"></i>
+        <a href="#" class="nav-link">
+            <i class="fas fa-comment-dots"></i>
             <span>Message</span>
         </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-user-ninja"></i>
+        <a href="#" class="nav-link">
+            <i class="fas fa-user"></i>
             <span>Profile</span>
         </a>
     </nav>
