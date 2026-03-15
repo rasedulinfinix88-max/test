@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Fashion BD | Pro Clone</title>
+    <title>Trendy Fashion BD | Mobile Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,54 +14,70 @@
             --gold: #fcc419;
             --text-white: #ffffff;
             --text-gray: #94a3b8;
-            --footer-dark: #070b16;
+            --nav-bg: #161d31;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-body); color: var(--text-white); }
+        body { background-color: var(--bg-body); color: var(--text-white); padding-bottom: 70px; /* Space for fixed nav */ }
 
-        /* --- Header --- */
+        /* --- Header (Profile Removed) --- */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: sticky; top: 0; background: var(--bg-body); z-index: 100; }
         .brand { display: flex; align-items: center; gap: 10px; }
         .brand-logo { color: var(--gold); font-size: 30px; font-weight: 800; }
         .brand-name h1 { font-size: 18px; font-weight: 700; line-height: 1; }
         .brand-name p { font-size: 12px; color: var(--text-gray); }
+        .header-actions { display: flex; gap: 18px; font-size: 20px; color: var(--text-white); }
 
         /* --- Categories --- */
         .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 20px; gap: 10px; text-align: center; }
-        .cat-item .circle { width: 70px; height: 70px; background: white; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 28px; }
+        .cat-item .circle { width: 65px; height: 65px; background: white; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; }
         .cat-item span { font-size: 11px; color: var(--text-gray); }
 
         /* --- Products --- */
-        .section-head { padding: 10px 20px; font-size: 22px; font-weight: 700; }
+        .section-head { padding: 10px 20px; font-size: 20px; font-weight: 700; }
         .product-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
         .p-card { background: var(--card-bg); border-radius: 16px; padding: 12px; border: 1px solid #1e293b; position: relative; }
-        .p-img-box { width: 100%; height: 140px; background: white; border-radius: 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #cbd5e1; font-size: 60px; }
-        .p-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: block; }
-        .p-price-current { font-size: 16px; font-weight: 700; color: var(--gold); display: block; }
-        .discount-label { position: absolute; top: 60%; right: 15px; background: #ff4d4d; color: white; font-size: 10px; font-weight: 800; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1; }
-        .p-actions { display: flex; gap: 6px; margin-top: 15px; }
-        .btn { flex: 1; border: none; padding: 8px 0; border-radius: 6px; font-size: 10px; font-weight: 700; }
+        .p-img-box { width: 100%; height: 130px; background: white; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: #cbd5e1; font-size: 50px; }
+        .p-title { font-size: 13px; font-weight: 600; margin-bottom: 5px; display: block; }
+        .p-price { font-size: 15px; font-weight: 700; color: var(--gold); }
+        .discount-badge { position: absolute; top: 55%; right: 10px; background: #ff4d4d; color: white; font-size: 9px; font-weight: 800; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1; }
+        .p-actions { display: flex; gap: 5px; margin-top: 12px; }
+        .btn { flex: 1; border: none; padding: 7px 0; border-radius: 5px; font-size: 10px; font-weight: 700; }
         .btn-cart { background: white; color: black; }
         .btn-detail { background: #334155; color: white; }
 
-        /* --- Daraz Style Footer --- */
-        footer { background: var(--footer-dark); padding: 40px 20px 20px; border-top: 2px solid var(--gold); margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-bottom: 30px; text-align: left; }
-        .footer-col h4 { color: var(--gold); font-size: 16px; margin-bottom: 20px; text-transform: uppercase; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: var(--text-gray); text-decoration: none; font-size: 13px; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--gold); padding-left: 5px; }
-        
-        .payment-methods { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .pay-card { width: 50px; height: 30px; background: #1e293b; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: var(--text-gray); border: 1px solid #334155; }
+        /* --- Sticky Bottom Navigation --- */
+        .fixed-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #2d3748;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .nav-tab {
+            text-align: center;
+            color: var(--text-gray);
+            text-decoration: none;
+            flex: 1;
+            transition: 0.3s;
+        }
+        .nav-tab i { font-size: 20px; display: block; margin-bottom: 4px; }
+        .nav-tab span { font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .nav-tab.active { color: var(--gold); }
 
-        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
-        .social-box { display: flex; gap: 15px; }
-        .social-box i { font-size: 20px; color: var(--text-gray); transition: 0.3s; }
-        .social-box i:hover { color: var(--gold); }
-        .copy-text { font-size: 12px; color: #475569; }
+        /* --- Daraz Style Footer Content --- */
+        .main-footer { background: #070b16; padding: 40px 20px; margin-top: 20px; border-top: 1px solid #1e293b; text-align: left; }
+        .footer-col h4 { color: var(--gold); font-size: 14px; margin-bottom: 15px; }
+        .footer-col ul { list-style: none; margin-bottom: 25px; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { color: var(--text-gray); text-decoration: none; font-size: 12px; }
+        .copy { text-align: center; font-size: 11px; color: #475569; padding-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -75,15 +91,14 @@
             </div>
         </div>
         <div class="header-actions">
-            <i class="fas fa-search"></i> &nbsp;&nbsp;
-            <i class="far fa-bell"></i> &nbsp;&nbsp;
-            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-search"></i>
+            <i class="far fa-bell"></i>
         </div>
     </header>
 
     <section class="categories-grid">
-        <div class="cat-item"><div class="circle"><i class="fas fa-user-tie"></i></div><span>Men's Wear</span></div>
-        <div class="cat-item"><div class="circle"><i class="fas fa-shoe-prints"></i></div><span>Women's Fashion</span></div>
+        <div class="cat-item"><div class="circle"><i class="fas fa-user-tie"></i></div><span>Men</span></div>
+        <div class="cat-item"><div class="circle"><i class="fas fa-shoe-prints"></i></div><span>Women</span></div>
         <div class="cat-item"><div class="circle"><i class="fas fa-socks"></i></div><span>Shoes</span></div>
         <div class="cat-item"><div class="circle"><i class="fas fa-shopping-bag"></i></div><span>Bags</span></div>
     </section>
@@ -93,66 +108,61 @@
         <div class="p-card">
             <div class="p-img-box"><i class="fas fa-shirt"></i></div>
             <span class="p-title">Slim Fit Shirt</span>
-            <span class="p-price-current">TK. 1,199</span>
-            <div class="discount-label">52%<br>OFF</div>
+            <span class="p-price">TK. 1,199</span>
+            <div class="discount-badge">52%<br>OFF</div>
             <div class="p-actions">
                 <button class="btn btn-cart">Add to Cart</button>
-                <button class="btn btn-detail">View Details</button>
+                <button class="btn btn-detail">Details</button>
             </div>
         </div>
         <div class="p-card">
             <div class="p-img-box"><i class="fas fa-shoe-prints"></i></div>
             <span class="p-title">Casual Shoes</span>
-            <span class="p-price-current">TK. 1,199</span>
-            <div class="discount-label">52%<br>OFF</div>
+            <span class="p-price">TK. 1,199</span>
+            <div class="discount-badge">52%<br>OFF</div>
             <div class="p-actions">
                 <button class="btn btn-cart">Add to Cart</button>
-                <button class="btn btn-detail">View Details</button>
+                <button class="btn btn-detail">Details</button>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Customer Care</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">How to Buy</a></li>
-                    <li><a href="#">Returns & Refunds</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Trendy Fashion</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Digital Payments</a></li>
-                    <li><a href="#">Trendy Cares</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Payment Methods</h4>
-                <div class="payment-methods">
-                    <div class="pay-card">BKASH</div>
-                    <div class="pay-card">NAGAD</div>
-                    <div class="pay-card">VISA</div>
-                    <div class="pay-card">CASH</div>
-                </div>
+    <div class="main-footer">
+        <div class="footer-col">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">How to Buy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Payment Methods</h4>
+            <div style="display: flex; gap: 10px; color: var(--text-gray); font-size: 12px; font-weight: bold;">
+                <span>BKASH</span> | <span>NAGAD</span> | <span>VISA</span>
             </div>
         </div>
+    </div>
+    <p class="copy">© 2026 Trendy Fashion BD</p>
 
-        <div class="footer-bottom">
-            <div class="social-box">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-twitter"></i>
-            </div>
-            <p class="copy-text">© 2026 Trendy Fashion BD. All rights reserved.</p>
-        </div>
-    </footer>
+    <nav class="fixed-nav">
+        <a href="#" class="nav-tab active">
+            <i class="fas fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="#" class="nav-tab">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="nav-tab">
+            <i class="fas fa-comment-dots"></i>
+            <span>Message</span>
+        </a>
+        <a href="#" class="nav-tab">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
 
 </body>
 </html>
