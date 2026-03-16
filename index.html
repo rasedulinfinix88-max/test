@@ -3,98 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Fashion BD | Elite Clone</title>
+    <title>Trendy Fashion BD | Light Mode</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg: #0a1120;
-            --card-bg: #111a2d;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --header-bg: #ffffff;
             --gold: #fcc419;
-            --text-white: #ffffff;
-            --text-dim: #94a3b8;
-            --nav-bg: rgba(17, 26, 45, 0.95);
+            --text-main: #1e293b;
+            --text-dim: #64748b;
+            --nav-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-white); padding-bottom: 80px; }
+        body { background-color: var(--bg); color: var(--text-main); padding-bottom: 80px; }
 
-        /* --- Header (Profile Removed) --- */
+        /* --- Header --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 20px; background: var(--bg); position: sticky; top: 0; z-index: 1000;
+            padding: 15px 20px; background: var(--header-bg); position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
         .logo-box { display: flex; align-items: center; gap: 10px; }
-        .logo-icon { color: var(--gold); font-size: 32px; font-weight: 800; }
-        .logo-text h1 { font-size: 18px; font-weight: 700; line-height: 1; }
+        .logo-icon { color: #000; font-size: 32px; font-weight: 800; }
+        .logo-text h1 { font-size: 18px; font-weight: 700; line-height: 1; color: #000; }
         .logo-text p { font-size: 11px; color: var(--text-dim); text-transform: uppercase; }
-        .header-icons { display: flex; gap: 15px; font-size: 20px; }
-
-        /* --- Dummy Banner --- */
-        .banner-container { padding: 15px; }
-        .dummy-banner {
-            width: 100%; height: 160px; border-radius: 20px;
-            background: linear-gradient(45deg, #1e40af, #3b82f6);
-            display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
-        }
-        .banner-text { text-align: center; z-index: 2; }
-        .banner-text h2 { font-size: 22px; font-weight: 800; }
-        .banner-circle { position: absolute; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; top: -30px; right: -30px; }
+        .header-icons { display: flex; gap: 15px; font-size: 20px; color: #000; }
 
         /* --- Categories --- */
-        .cat-section { display: flex; justify-content: space-around; padding: 10px 0 20px; }
+        .cat-section { display: flex; justify-content: space-around; padding: 25px 0; background: #fff; }
         .cat-item { text-align: center; }
         .cat-circle { 
-            width: 65px; height: 65px; background: #fff; border-radius: 50%; 
+            width: 65px; height: 65px; background: #f1f5f9; border-radius: 50%; 
             border: 2px solid var(--gold); display: flex; align-items: center; 
-            justify-content: center; margin-bottom: 8px; color: #333; font-size: 26px;
+            justify-content: center; margin-bottom: 8px; color: #334155; font-size: 26px;
+            transition: 0.3s;
         }
-        .cat-item span { font-size: 11px; font-weight: 600; color: var(--text-dim); }
+        .cat-circle:hover { transform: scale(1.1); background: #fff; }
+        .cat-item span { font-size: 11px; font-weight: 700; color: var(--text-dim); }
 
-        /* --- Products (Dummy Data) --- */
-        .section-title { padding: 0 20px 15px; font-size: 20px; font-weight: 700; }
+        /* --- Products --- */
+        .section-title { padding: 10px 20px 15px; font-size: 20px; font-weight: 800; color: #000; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 15px; }
         .p-card { 
             background: var(--card-bg); border-radius: 20px; padding: 12px; 
-            border: 1px solid rgba(255,255,255,0.05); position: relative;
+            border: 1px solid var(--border-color); position: relative;
+            transition: 0.3s;
         }
+        .p-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .p-img-box { 
-            width: 100%; height: 130px; background: #f8fafc; border-radius: 15px; 
+            width: 100%; height: 130px; background: #fff; border-radius: 15px; 
             margin-bottom: 12px; display: flex; align-items: center; justify-content: center; 
             color: #cbd5e1; font-size: 50px;
         }
         .rating { color: var(--gold); font-size: 10px; margin-bottom: 5px; }
-        .p-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; display: block; }
+        .p-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; display: block; color: #000; }
         .price-label { font-size: 11px; color: var(--text-dim); }
-        .price-now { font-size: 16px; font-weight: 800; color: var(--gold); margin: 2px 0; display: block; }
+        .price-now { font-size: 16px; font-weight: 800; color: #2563eb; margin: 2px 0; display: block; }
         .price-old { font-size: 11px; color: var(--text-dim); text-decoration: line-through; }
         
         .discount-badge { 
             position: absolute; top: 120px; right: 10px; background: #ef4444; 
             color: white; font-size: 9px; font-weight: 800; width: 35px; height: 35px; 
             border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            text-align: center; line-height: 1; border: 2px solid var(--card-bg);
+            text-align: center; line-height: 1; border: 2px solid #fff;
         }
 
         .p-btns { display: flex; gap: 6px; margin-top: 15px; }
         .btn { flex: 1; border: none; padding: 8px 0; border-radius: 8px; font-size: 10px; font-weight: 700; cursor: pointer; }
-        .btn-cart { background: #fff; color: #000; }
-        .btn-view { background: #334155; color: #fff; }
+        .btn-cart { background: #000; color: #fff; }
+        .btn-view { background: #e2e8f0; color: #475569; }
 
         /* --- Fixed Footer Nav --- */
         .fixed-nav {
             position: fixed; bottom: 0; left: 0; width: 100%;
             background: var(--nav-bg); backdrop-filter: blur(10px);
             display: flex; justify-content: space-around; padding: 12px 0;
-            border-top: 1px solid rgba(255,255,255,0.1); z-index: 2000;
+            border-top: 1px solid var(--border-color); z-index: 2000;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
         }
         .nav-link { text-align: center; color: var(--text-dim); text-decoration: none; flex: 1; position: relative; }
         .nav-link i { font-size: 20px; display: block; margin-bottom: 4px; }
         .nav-link span { font-size: 10px; font-weight: 700; text-transform: uppercase; }
-        .nav-link.active { color: var(--gold); }
-        .cart-count { position: absolute; top: -5px; right: 28%; background: #ef4444; color: #fff; font-size: 9px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+        .nav-link.active { color: #000; }
+        .cart-count { 
+            position: absolute; top: -5px; right: 28%; background: #ef4444; color: #fff; 
+            font-size: 9px; width: 16px; height: 16px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; font-weight: 800;
+        }
     </style>
 </head>
 <body>
@@ -103,8 +103,8 @@
         <div class="logo-box">
             <div class="logo-icon">TF</div>
             <div class="logo-text">
-                <h1>Trendy</h1>
-                <p>Fashion BD</p>
+                <h1RASEDUL</h1>
+                <p>SHOP</p>
             </div>
         </div>
         <div class="header-icons">
@@ -112,17 +112,6 @@
             <i class="far fa-bell"></i>
         </div>
     </header>
-
-    <div class="banner-container">
-        <div class="dummy-banner">
-            <div class="banner-circle"></div>
-            <div class="banner-text">
-                <h2>FLASH SALE</h2>
-                <p>Up to 60% Off Today</p>
-                <button style="margin-top:10px; background: #fff; border:none; padding:5px 15px; border-radius:20px; font-weight:800; font-size:12px;">SHOP NOW</button>
-            </div>
-        </div>
-    </div>
 
     <section class="cat-section">
         <div class="cat-item"><div class="cat-circle"><i class="fas fa-tshirt"></i></div><span>Men's Wear</span></div>
@@ -143,7 +132,7 @@
             <div class="discount-badge">52%<br>OFF</div>
             <div class="p-btns">
                 <button class="btn btn-cart">Add to Cart</button>
-                <button class="btn btn-view">View Details</button>
+                <button class="btn btn-view">Details</button>
             </div>
         </div>
 
@@ -157,7 +146,7 @@
             <div class="discount-badge">50%<br>OFF</div>
             <div class="p-btns">
                 <button class="btn btn-cart">Add to Cart</button>
-                <button class="btn btn-view">View Details</button>
+                <button class="btn btn-view">Details</button>
             </div>
         </div>
     </div>
