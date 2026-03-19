@@ -16,7 +16,7 @@
 }
 
 body{
-  background:#f3f3f3;
+  background:#f5f5f5;
 }
 
 /* HEADER */
@@ -29,7 +29,8 @@ body{
 }
 
 .header h2{
-  letter-spacing:3px;
+  color:#8B0000;
+  letter-spacing:2px;
 }
 
 /* BANNER */
@@ -39,7 +40,9 @@ body{
 
 .banner img{
   width:100%;
-  border-radius:15px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
 }
 
 /* CATEGORY */
@@ -54,20 +57,20 @@ body{
 }
 
 .cat div{
-  width:65px;
-  height:65px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   border:2px solid #000;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:auto;
-  font-size:24px;
+  font-size:22px;
 }
 
 .cat p{
-  font-size:13px;
+  font-size:12px;
   margin-top:5px;
+  color:#8B0000;
 }
 
 /* PRODUCTS */
@@ -85,29 +88,30 @@ body{
   position:relative;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
 }
 
-/* SAVE CIRCLE */
+/* SAVE WHITE CIRCLE */
 .save-circle{
   position:absolute;
   top:8px;
   right:8px;
-  background:#000;
-  color:#fff;
-  width:45px;
-  height:45px;
+  background:#fff;
+  color:#8B0000;
+  width:40px;
+  height:40px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:11px;
+  font-weight:bold;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* IMAGE */
 .card img{
   width:100%;
-  height:140px;
+  height:150px;
   object-fit:cover;
   border-radius:10px;
 }
@@ -116,10 +120,12 @@ body{
 .title{
   font-size:14px;
   margin:8px 0;
+  color:#333;
 }
 
 .price{
   font-weight:bold;
+  color:#8B0000;
 }
 
 .old{
@@ -128,13 +134,13 @@ body{
   font-size:12px;
 }
 
-/* BUTTON FIXED */
+/* BUTTON */
 .btn{
-  margin-top:10px;
+  margin-top:auto;
   width:100%;
   padding:10px;
-  border:1px solid #000;
-  background:#000;
+  border:none;
+  background:#8B0000;
   color:#fff;
   border-radius:10px;
 }
@@ -154,6 +160,7 @@ body{
 .footer div{
   text-align:center;
   font-size:12px;
+  color:#8B0000;
 }
 </style>
 
@@ -167,9 +174,9 @@ body{
   <div>🛒</div>
 </div>
 
-<!-- BANNER IMAGE -->
+<!-- SMALL BANNER -->
 <div class="banner">
-  <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f">
+  <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db">
 </div>
 
 <!-- CATEGORY -->
