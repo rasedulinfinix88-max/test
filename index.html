@@ -1,86 +1,233 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App Style E-commerce</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui, -apple-system, sans-serif;}
-    body{background:#0f0f0f;color:#fff;}/* App Container */
-.app{max-width:420px;margin:auto;min-height:100vh;background:#181818;display:flex;flex-direction:column;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Shop 2026</title>
 
-/* Header */
-.header{padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
-.header h1{font-size:20px;}
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-/* Search */
-.search{padding:0 20px;margin-bottom:10px;}
-.search input{width:100%;padding:10px;border-radius:10px;border:none;background:#2a2a2a;color:#fff;}
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-/* Banner */
-.banner{margin:10px 20px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#ff4d4d,#ff884d);}
-.banner h2{font-size:18px;margin-bottom:5px;}
-.banner p{font-size:13px;opacity:0.9;}
+body{
+  background:#f5f7fb;
+  color:#333;
+}
 
-/* Categories */
-.categories{display:flex;overflow-x:auto;padding:10px 15px;gap:10px;}
-.cat{background:#2a2a2a;padding:10px 15px;border-radius:20px;font-size:12px;white-space:nowrap;}
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:white;
+  padding:12px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  z-index:1000;
+}
 
-/* Products */
-.products{flex:1;padding:15px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.logo{
+  font-weight:600;
+  font-size:18px;
+  color:#6c5ce7;
+}
 
-.card{background:#222;border-radius:15px;padding:10px;}
-.card img{width:100%;border-radius:10px;margin-bottom:8px;}
-.card h3{font-size:14px;margin-bottom:3px;}
-.price{font-size:13px;color:#ff884d;}
+.search{
+  flex:1;
+  margin:0 10px;
+}
 
-/* Bottom Nav */
-.bottom-nav{display:flex;justify-content:space-around;padding:10px;background:#111;border-top:1px solid #333;}
-.bottom-nav div{font-size:12px;text-align:center;opacity:0.7;}
+.search input{
+  width:100%;
+  padding:8px 12px;
+  border-radius:20px;
+  border:none;
+  background:#f1f2f6;
+}
 
-  </style>
+/* HERO */
+.hero{
+  padding:20px;
+  background:linear-gradient(135deg,#6c5ce7,#00cec9);
+  color:white;
+  border-radius:0 0 20px 20px;
+}
+
+.hero h1{
+  font-size:22px;
+}
+
+.hero p{
+  font-size:14px;
+  margin-top:5px;
+}
+
+/* CATEGORY */
+.categories{
+  display:flex;
+  overflow-x:auto;
+  padding:15px;
+  gap:10px;
+}
+
+.cat{
+  min-width:90px;
+  padding:10px;
+  border-radius:15px;
+  background:white;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  font-size:13px;
+  cursor:pointer;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:15px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:10px;
+}
+
+.card-title{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.price{
+  color:#6c5ce7;
+  font-weight:600;
+}
+
+.btn{
+  margin-top:8px;
+  display:block;
+  text-align:center;
+  padding:6px;
+  background:#6c5ce7;
+  color:white;
+  border-radius:10px;
+  font-size:13px;
+}
+
+/* FOOTER */
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.05);
+}
+
+footer div{
+  text-align:center;
+  font-size:12px;
+  color:#555;
+}
+
+</style>
 </head>
-<body><div class="app">  <div class="header">
-    <h1>MyShop</h1>
-    <span>🛒</span>
-  </div>  <div class="search">
-    <input type="text" placeholder="Search products...">
-  </div>  <div class="banner">
-    <h2>🔥 Big Sale</h2>
-    <p>Up to 50% off today</p>
-  </div>  <div class="categories">
-    <div class="cat">All</div>
-    <div class="cat">Fashion</div>
-    <div class="cat">Electronics</div>
-    <div class="cat">Shoes</div>
-    <div class="cat">Beauty</div>
-  </div>  <div class="products"><div class="card">
-  <img src="https://via.placeholder.com/150">
-  <h3>Sneakers</h3>
-  <div class="price">$45</div>
+
+<body>
+
+<header>
+  <div class="logo">ShopX</div>
+  <div class="search"><input type="text" placeholder="Search..."></div>
+  <div>🛒</div>
+</header>
+
+<section class="hero">
+  <h1>Big Sale 2026 🔥</h1>
+  <p>Up to 50% off on trending products</p>
+</section>
+
+<div class="categories">
+  <div class="cat">Fashion</div>
+  <div class="cat">Electronics</div>
+  <div class="cat">Shoes</div>
+  <div class="cat">Watch</div>
+  <div class="cat">Beauty</div>
 </div>
 
-<div class="card">
-  <img src="https://via.placeholder.com/150">
-  <h3>Watch</h3>
-  <div class="price">$60</div>
-</div>
+<section class="products">
 
-<div class="card">
-  <img src="https://via.placeholder.com/150">
-  <h3>T-Shirt</h3>
-  <div class="price">$20</div>
-</div>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?1">
+    <div class="card-body">
+      <div class="card-title">Smart Watch</div>
+      <div class="price">$49</div>
+      <div class="btn">Add to Cart</div>
+    </div>
+  </div>
 
-<div class="card">
-  <img src="https://via.placeholder.com/150">
-  <h3>Headphones</h3>
-  <div class="price">$80</div>
-</div>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?2">
+    <div class="card-body">
+      <div class="card-title">Sneakers</div>
+      <div class="price">$79</div>
+      <div class="btn">Add to Cart</div>
+    </div>
+  </div>
 
-  </div>  <div class="bottom-nav">
-    <div>🏠<br>Home</div>
-    <div>❤️<br>Wishlist</div>
-    <div>🛍️<br>Shop</div>
-    <div>👤<br>Profile</div>
-  </div></div></body>
+  <div class="card">
+    <img src="https://picsum.photos/200/200?3">
+    <div class="card-body">
+      <div class="card-title">Headphone</div>
+      <div class="price">$29</div>
+      <div class="btn">Add to Cart</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://picsum.photos/200/200?4">
+    <div class="card-body">
+      <div class="card-title">T-Shirt</div>
+      <div class="price">$19</div>
+      <div class="btn">Add to Cart</div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div>🏠<br>Home</div>
+  <div>🔍<br>Search</div>
+  <div>❤️<br>Wishlist</div>
+  <div>👤<br>Account</div>
+</footer>
+
+</body>
 </html>
