@@ -42,18 +42,18 @@ body {
 .banner {
     margin: 10px;
     background: #f6c200;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .banner img {
     width: 100%;
-    max-height: 150px;
-    object-fit: contain;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-/* Products */
+/* Section */
 .section {
     padding: 10px;
 }
@@ -62,33 +62,58 @@ body {
     margin-bottom: 10px;
 }
 
+/* Products */
 .products {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
 }
 
 .product {
     background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
+    padding: 12px;
+    border-radius: 15px;
+    text-align: left;
 }
 
 .product img {
     width: 100%;
-    height: 120px;
-    object-fit: contain;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product p {
+    margin: 10px 0 5px;
+    font-weight: 500;
 }
 
 .price {
     color: orange;
     font-weight: bold;
+    font-size: 18px;
 }
 
 .old-price {
     text-decoration: line-through;
     color: gray;
+    font-size: 14px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-btn {
+    margin-top: 10px;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
     font-size: 14px;
 }
 
@@ -113,22 +138,28 @@ body {
     <div>☰</div>
     <div class="logo">GHORER BAZAR</div>
     <div class="cart">🛒<span>3</span></div>
-</div><!-- Banner --><div class="banner">
-    <img src="https://i.ibb.co/6bQ6Z2k/honey.png" alt="banner">
+</div><!-- Banner with real dummy image --><div class="banner">
+    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da" alt="banner">
 </div><!-- Products --><div class="section">
     <h3>Top Selling Products</h3>
     <div class="products"><div class="product">
-        <img src="https://i.ibb.co/ZYW3VTp/oil.png">
+        <img src="https://images.unsplash.com/photo-1615486363192-7d7d4b6c2d34">
         <p>Deshi Mustard Oil 5 liter</p>
-        <div class="price">৳1,470</div>
-        <div class="old-price">৳1,550</div>
+        <div class="price-row">
+            <div class="price">৳1,470</div>
+            <div class="old-price">৳1,550</div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
     </div>
 
     <div class="product">
-        <img src="https://i.ibb.co/2kR5zqX/honey-nuts.png">
+        <img src="https://images.unsplash.com/photo-1604908176997-4317c3b1d87d">
         <p>Honey Nuts 800gm</p>
-        <div class="price">৳1,425</div>
-        <div class="old-price">৳1,500</div>
+        <div class="price-row">
+            <div class="price">৳1,425</div>
+            <div class="old-price">৳1,500</div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
     </div>
 
 </div>
