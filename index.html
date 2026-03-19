@@ -1,174 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Theme Shop</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Landing Page</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+    body{background:#f5f5f5;color:#333;}
+    header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#111;color:#fff;}
+    header h1{font-size:22px;}
+    nav a{color:#fff;margin-left:15px;text-decoration:none;font-size:14px;}.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:80vh;background:linear-gradient(135deg,#111,#444);color:#fff;padding:20px;}
+.hero h2{font-size:36px;margin-bottom:10px;}
+.hero p{font-size:16px;margin-bottom:20px;}
+.hero button{padding:12px 25px;border:none;background:#ff4d4d;color:#fff;font-size:16px;border-radius:5px;cursor:pointer;}
 
-        body {
-            background-color: #ffffff; /* ১০০% সাদা ব্যাকগ্রাউন্ড */
-            padding: 15px;
-        }
+.products{padding:40px 20px;}
+.products h2{text-align:center;margin-bottom:20px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
 
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
+.card{background:#fff;padding:15px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:center;}
+.card img{width:100%;border-radius:10px;}
+.card h3{margin:10px 0;font-size:18px;}
+.card p{font-size:14px;color:#777;}
+.card button{margin-top:10px;padding:10px 20px;border:none;background:#111;color:#fff;border-radius:5px;cursor:pointer;}
 
-        .section-title {
-            font-size: 24px;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            border-bottom: 3px solid #1E3A8A;
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #1E3A8A;
-        }
+footer{background:#111;color:#fff;text-align:center;padding:15px;margin-top:30px;}
 
-        /* কার্ড স্টাইল */
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            position: relative;
-            border: 1px solid #f0f0f0;
-        }
+@media(max-width:600px){
+  .hero h2{font-size:26px;}
+}
 
-        .discount-badge {
-            position: absolute;
-            top: 10px;
-            right: 0;
-            background: #ff4757;
-            color: white;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-size: 14px;
-            z-index: 5;
-        }
-
-        .image-box {
-            width: 100%;
-            height: 220px;
-            background: #fafafa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-box img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* ইনফো সেকশন - ১০০% নতুন কালার */
-        .info-section {
-            background: #1E3A8A; /* রয়্যাল ব্লু ব্যাকগ্রাউন্ড */
-            padding: 15px;
-            color: white;
-        }
-
-        .meta-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #cbd5e1;
-            margin-bottom: 8px;
-        }
-
-        .rating { color: #FFC107; }
-
-        .product-title {
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .new-price {
-            color: #2ECC71; /* লাইম গ্রিন প্রাইস */
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        /* বাটন সেকশন */
-        .btn-group {
-            display: flex;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-cart {
-            background-color: #FF4757; /* কোরাল রেড বাটন */
-            color: white;
-        }
-
-        .btn-details {
-            background-color: #FFC107; /* হলুদ বাটন */
-            color: #1E3A8A;
-        }
-
-        .btn:hover { opacity: 0.9; }
-
-    </style>
+  </style>
 </head>
-<body>
-
-<div class="container">
-    <h2 class="section-title">Our Products</h2>
-
-    <div class="product-card">
-        <div class="discount-badge">21% OFF</div>
-        <div class="image-box">
-            <img src="https://via.placeholder.com/300x200?text=Premium+Bag" alt="Product">
-        </div>
-        <div class="info-section">
-            <div class="meta-row">
-                <span class="rating">★★★★☆</span>
-                <span>112 REVIEWS</span>
-            </div>
-            <span class="product-title">Luxury Leather Handbag</span>
-            <div class="price-row">
-                <span class="new-price">TK. 95</span>
-                <span class="old-price">TK. 120</span>
-            </div>
-        </div>
-        <div class="btn-group">
-            <button class="btn btn-cart">Add To Cart</button>
-            <button class="btn btn-details">Details</button>
-        </div>
-    </div>
+<body><header>
+  <h1>MyShop</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Cart</a>
+    <a href="#">Login</a>
+  </nav>
+</header><section class="hero">
+  <h2>Best Products Online</h2>
+  <p>Shop the latest trends at unbeatable prices</p>
+  <button>Shop Now</button>
+</section><section class="products">
+  <h2>Featured Products</h2>
+  <div class="grid"><div class="card">
+  <img src="https://via.placeholder.com/200" alt="product">
+  <h3>Product 1</h3>
+  <p>$25.00</p>
+  <button>Add to Cart</button>
 </div>
 
-</body>
+<div class="card">
+  <img src="https://via.placeholder.com/200" alt="product">
+  <h3>Product 2</h3>
+  <p>$40.00</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://via.placeholder.com/200" alt="product">
+  <h3>Product 3</h3>
+  <p>$30.00</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="card">
+  <img src="https://via.placeholder.com/200" alt="product">
+  <h3>Product 4</h3>
+  <p>$55.00</p>
+  <button>Add to Cart</button>
+</div>
+
+  </div>
+</section><footer>
+  <p>© 2026 MyShop. All rights reserved.</p>
+</footer></body>
 </html>
