@@ -3,91 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Card Layout</title>
+    <title>White Theme Shop</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #ffffff; /* সাদা ব্যাকগ্রাউন্ড */
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 400px; /* মোবাইল ভিউ এর জন্য */
-            margin: 0 auto;
-        }
-
-        .heading {
-            font-size: 24px;
-            font-weight: bold;
-            font-style: italic;
-            text-transform: uppercase;
-            border-bottom: 2px solid #333;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* কার্ডের মূল অংশ */
-        .card {
-            background: #fff;
-            border: 1px solid #eee;
-            margin-bottom: 30px;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* ডিসকাউন্ট ব্যাজ */
-        .discount-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #ff4d4d;
-            color: white;
-            padding: 5px 15px;
-            font-size: 14px;
-            font-weight: bold;
-            z-index: 1;
-        }
-
-        /* ইমেজ সেকশন */
-        .image-placeholder {
-            width: 100%;
-            height: 250px;
-            background-color: #fcfcfc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-
-        /* ইনফো সেকশন */
-        .info-box {
-            background: #1a1c2c; /* ছবির মত গাঢ় নীল ব্যাকগ্রাউন্ড */
-            color: white;
+            background-color: #ffffff; /* ১০০% সাদা ব্যাকগ্রাউন্ড */
             padding: 15px;
         }
 
-        .rating-row {
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            border-bottom: 3px solid #1E3A8A;
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #1E3A8A;
+        }
+
+        /* কার্ড স্টাইল */
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            position: relative;
+            border: 1px solid #f0f0f0;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            background: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 14px;
+            z-index: 5;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 220px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ইনফো সেকশন - ১০০% নতুন কালার */
+        .info-section {
+            background: #1E3A8A; /* রয়্যাল ব্লু ব্যাকগ্রাউন্ড */
+            padding: 15px;
+            color: white;
+        }
+
+        .meta-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            font-size: 11px;
+            color: #cbd5e1;
             margin-bottom: 8px;
         }
 
-        .stars {
-            color: #ff9f43;
-            font-size: 14px;
-        }
-
-        .review-count {
-            color: #888;
-            font-size: 12px;
-        }
+        .rating { color: #FFC107; }
 
         .product-title {
             font-size: 18px;
@@ -103,20 +101,20 @@
             gap: 10px;
         }
 
-        .current-price {
-            color: #ffcc00; /* হলুদ প্রাইস */
+        .new-price {
+            color: #2ECC71; /* লাইম গ্রিন প্রাইস */
             font-size: 22px;
             font-weight: bold;
         }
 
         .old-price {
             text-decoration: line-through;
-            color: #666;
+            color: #94a3b8;
             font-size: 14px;
         }
 
         /* বাটন সেকশন */
-        .btn-container {
+        .btn-group {
             display: flex;
         }
 
@@ -124,70 +122,50 @@
             flex: 1;
             padding: 15px;
             border: none;
+            font-weight: 800;
             text-transform: uppercase;
-            font-weight: bold;
-            font-size: 14px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .btn-cart {
-            background-color: #f15a24; /* লাল/কমলা অ্যাড টু কার্ট */
+            background-color: #FF4757; /* কোরাল রেড বাটন */
             color: white;
         }
 
         .btn-details {
-            background-color: #ffcc29; /* হলুদ ডিটেইলস বাটন */
-            color: #000;
+            background-color: #FFC107; /* হলুদ বাটন */
+            color: #1E3A8A;
         }
+
+        .btn:hover { opacity: 0.9; }
 
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 class="heading">OUR PRODUCTS</h2>
+    <h2 class="section-title">Our Products</h2>
 
-    <div class="card">
+    <div class="product-card">
         <div class="discount-badge">21% OFF</div>
-        <div class="image-placeholder">
-            <span>[IMAGE HERE]</span>
+        <div class="image-box">
+            <img src="https://via.placeholder.com/300x200?text=Premium+Bag" alt="Product">
         </div>
-        <div class="info-box">
-            <div class="rating-row">
-                <span class="stars">★★★★☆</span>
-                <span class="review-count">112 REVIEWS</span>
+        <div class="info-section">
+            <div class="meta-row">
+                <span class="rating">★★★★☆</span>
+                <span>112 REVIEWS</span>
             </div>
-            <span class="product-title">LUXURY LEATHER HANDBAG</span>
+            <span class="product-title">Luxury Leather Handbag</span>
             <div class="price-row">
-                <span class="current-price">TK. 95</span>
+                <span class="new-price">TK. 95</span>
                 <span class="old-price">TK. 120</span>
             </div>
         </div>
-        <div class="btn-container">
-            <button class="btn btn-cart">ADD TO CART</button>
-            <button class="btn btn-details">DETAILS</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="discount-badge">18% OFF</div>
-        <div class="image-placeholder">
-            <span>[IMAGE HERE]</span>
-        </div>
-        <div class="info-box">
-            <div class="rating-row">
-                <span class="stars">★★★★☆</span>
-                <span class="review-count">112 REVIEWS</span>
-            </div>
-            <span class="product-title">CLASSIC GOLD WATCH</span>
-            <div class="price-row">
-                <span class="current-price">TK. 180</span>
-                <span class="old-price">TK. 220</span>
-            </div>
-        </div>
-        <div class="btn-container">
-            <button class="btn btn-cart">ADD TO CART</button>
-            <button class="btn btn-details">DETAILS</button>
+        <div class="btn-group">
+            <button class="btn btn-cart">Add To Cart</button>
+            <button class="btn btn-details">Details</button>
         </div>
     </div>
 </div>
