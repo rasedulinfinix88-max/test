@@ -38,7 +38,7 @@ body {
     border-radius: 50%;
 }
 
-/* Banner (dummy image) */
+/* Banner */
 .banner {
     margin: 10px;
     border-radius: 15px;
@@ -71,24 +71,27 @@ body {
     background: #fff;
     border-radius: 15px;
     overflow: hidden;
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .product img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
-    display: block;
 }
 
 .product-content {
     padding: 10px;
-    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product p {
     margin: 0 0 8px;
     font-weight: 500;
+    text-align: left;
 }
 
 .price-row {
@@ -111,13 +114,15 @@ body {
 }
 
 .add-btn {
-    background: orange;
-    color: white;
-    border: none;
-    padding: 8px;
+    margin-top: auto;
+    background: #fff;
+    color: orange;
+    border: 2px solid orange;
+    padding: 10px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 /* Bottom Nav */
@@ -141,12 +146,12 @@ body {
     <div>☰</div>
     <div class="logo">RASE SHOP</div>
     <div class="cart">🛒<span>3</span></div>
-</div><!-- Banner dummy image --><div class="banner">
-    <img src="https://via.placeholder.com/400x160" alt="dummy">
+</div><!-- Banner --><div class="banner">
+    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da" alt="banner">
 </div><!-- Products --><div class="section">
     <h3>Top Selling Products</h3>
     <div class="products"><div class="product">
-        <img src="https://via.placeholder.com/300x200">
+        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38" alt="oil">
         <div class="product-content">
             <p>Deshi Mustard Oil 5 liter</p>
             <div class="price-row">
@@ -158,7 +163,7 @@ body {
     </div>
 
     <div class="product">
-        <img src="https://via.placeholder.com/300x200">
+        <img src="https://images.unsplash.com/photo-1604908176997-4317c3b1d87d" alt="honey">
         <div class="product-content">
             <p>Honey Nuts 800gm</p>
             <div class="price-row">
