@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RASESHOP</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 *{
   margin:0;
@@ -31,45 +29,56 @@ body{
 .header h2{
   color:#8B0000;
   letter-spacing:2px;
+  font-weight:600;
+}
+
+.menu-icon{
+  font-size:28px; /* bigger menu */
+  cursor:pointer;
 }
 
 /* BANNER */
 .banner{
   margin:10px;
+  background:#f8f8f8; /* off-white banner background */
+  border-radius:12px;
+  overflow:hidden;
 }
 
 .banner img{
   width:100%;
   height:120px;
   object-fit:cover;
-  border-radius:12px;
 }
 
 /* CATEGORY */
 .categories{
   display:flex;
-  justify-content:space-around;
-  margin:15px 0;
+  justify-content:flex-start; /* icons together horizontally */
+  gap:15px;
+  overflow-x:auto;
+  padding:10px;
+  background:#f8f8f8; /* off-white category background */
 }
 
 .cat{
   text-align:center;
+  flex-shrink:0;
+  background:#f8f8f8; /* off-white card bg */
+  padding:5px 10px;
+  border-radius:12px;
+  border:2px solid #8B0000;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
 .cat div{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  border:2px solid #000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   font-size:22px;
 }
 
 .cat p{
-  font-size:12px;
-  margin-top:5px;
+  font-size:13px;
   color:#8B0000;
 }
 
@@ -82,7 +91,7 @@ body{
 }
 
 .card{
-  background:#fff;
+  background:#f8f8f8; /* off-white product bg */
   border-radius:15px;
   padding:10px;
   position:relative;
@@ -90,15 +99,16 @@ body{
   flex-direction:column;
 }
 
-/* SAVE WHITE CIRCLE */
+/* SAVE CIRCLE */
 .save-circle{
   position:absolute;
-  top:8px;
-  right:8px;
+  top:5px;
+  right:5px;
   background:#fff;
   color:#8B0000;
-  width:40px;
-  height:40px;
+  border:2px solid #8B0000;
+  width:38px;
+  height:38px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -139,10 +149,11 @@ body{
   margin-top:auto;
   width:100%;
   padding:10px;
-  border:none;
-  background:#8B0000;
-  color:#fff;
+  border:2px solid #8B0000;
+  background:#fff;
+  color:#8B0000;
   border-radius:10px;
+  font-weight:600;
 }
 
 /* FOOTER */
@@ -163,13 +174,12 @@ body{
   color:#8B0000;
 }
 </style>
-
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
-  <div>☰</div>
+  <div class="menu-icon">☰</div>
   <h2>RASESHOP</h2>
   <div>🛒</div>
 </div>
@@ -196,6 +206,10 @@ body{
   <div class="cat">
     <div>👜</div>
     <p>Bags</p>
+  </div>
+  <div class="cat">
+    <div>⌚</div>
+    <p>Watches</p>
   </div>
 </div>
 
