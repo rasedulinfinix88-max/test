@@ -1,233 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Shop 2026</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raseshop · big sale 50%</title>
+    <!-- Font Awesome 6 (free) for cart & search icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            background: #f2f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+        .shop-card {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            padding: 28px 30px 40px 30px;
+            transition: all 0.2s ease;
+        }
 
-body{
-  background:#f5f7fb;
-  color:#333;
-}
+        /* RASESHOP header */
+        .shop-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
 
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  background:white;
-  padding:12px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  z-index:1000;
-}
+        .logo h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1e293b;
+        }
+        .logo h1 span {
+            color: #d97706;
+        }
 
-.logo{
-  font-weight:600;
-  font-size:18px;
-  color:#6c5ce7;
-}
+        .search-wrapper {
+            flex: 1;
+            max-width: 460px;
+            min-width: 240px;
+        }
 
-.search{
-  flex:1;
-  margin:0 10px;
-}
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 60px;
+            padding: 8px 20px;
+            border: 1px solid #e2e8f0;
+            transition: 0.15s;
+        }
+        .search-box i {
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .search-box input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 1rem;
+            padding: 8px 0;
+            outline: none;
+            color: #0f172a;
+        }
+        .search-box input::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+        }
 
-.search input{
-  width:100%;
-  padding:8px 12px;
-  border-radius:20px;
-  border:none;
-  background:#f1f2f6;
-}
+        /* big sale block */
+        .sale-banner {
+            background: linear-gradient(135deg, #0b1120 0%, #1e293b 100%);
+            border-radius: 28px;
+            padding: 32px 40px;
+            margin-bottom: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.3);
+        }
 
-/* HERO */
-.hero{
-  padding:20px;
-  background:linear-gradient(135deg,#6c5ce7,#00cec9);
-  color:white;
-  border-radius:0 0 20px 20px;
-}
+        .sale-text h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .sale-text h2 span {
+            color: #fbbf24;
+            font-size: 3.4rem;
+            display: block;
+            margin-top: 4px;
+        }
+        .sale-text p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-top: 6px;
+            font-weight: 400;
+        }
 
-.hero h1{
-  font-size:22px;
-}
+        .shop-now-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 16px 42px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(251, 191, 36, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.3px;
+        }
+        .shop-now-btn i {
+            font-size: 1.3rem;
+        }
+        .shop-now-btn:hover {
+            background: #f59e0b;
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(245, 158, 11, 0.4);
+        }
 
-.hero p{
-  font-size:14px;
-  margin-top:5px;
-}
+        /* category chips (men's wear, shoes, socks, bags) */
+        .category-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            margin-bottom: 38px;
+            background: #f8fafc;
+            padding: 16px 24px;
+            border-radius: 60px;
+            border: 1px solid #e9edf2;
+            align-items: center;
+        }
 
-/* CATEGORY */
-.categories{
-  display:flex;
-  overflow-x:auto;
-  padding:15px;
-  gap:10px;
-}
+        .cat-item {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #334155;
+            padding: 4px 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.1s;
+            cursor: default;
+        }
+        .cat-item.bold {
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .cat-item.highlight {
+            background: #d97706;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+        }
+        .cat-item i {
+            margin-right: 6px;
+            color: #d97706;
+        }
+        .cat-divider {
+            width: 6px;
+            height: 6px;
+            background: #cbd5e1;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 4px;
+        }
 
-.cat{
-  min-width:90px;
-  padding:10px;
-  border-radius:15px;
-  background:white;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-  font-size:13px;
-  cursor:pointer;
-}
+        /* product grid — exactly like the offered items structure */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin: 30px 0 20px 0;
+        }
 
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  padding:15px;
-}
+        .product-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 24px 20px 22px 20px;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
+            border: 1px solid #edf2f7;
+            transition: 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 36px -12px rgba(0,0,0,0.15);
+            border-color: #fcd34d;
+        }
 
-.card{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 4px 15px rgba(0,0,0,0.05);
-  transition:0.3s;
-}
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 650;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .product-sub {
+            color: #64748b;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            margin-bottom: 16px;
+            border-left: 4px solid #fbbf24;
+            padding-left: 10px;
+            background: #fef9e7;
+            border-radius: 0 8px 8px 0;
+            width: fit-content;
+            padding: 4px 12px 4px 10px;
+        }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+        .price-block {
+            background: #f1f5f9;
+            border-radius: 18px;
+            padding: 16px 14px;
+            margin: 10px 0 18px 0;
+        }
 
-.card img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-}
+        .current-price {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: inline-block;
+            margin-right: 12px;
+            letter-spacing: -0.02em;
+        }
+        .old-price {
+            font-size: 1.3rem;
+            color: #64748b;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+        .save-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 5px 14px;
+            border-radius: 40px;
+            margin-left: 8px;
+            letter-spacing: 0.3px;
+        }
 
-.card-body{
-  padding:10px;
-}
+        .add-to-cart {
+            background: #0f172a;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: auto;
+            border: 1px solid #1e293b;
+        }
+        .add-to-cart i {
+            font-size: 1.2rem;
+            color: #fbbf24;
+        }
+        .add-to-cart:hover {
+            background: #d97706;
+            color: #0f172a;
+            border-color: #d97706;
+        }
+        .add-to-cart:hover i {
+            color: #0f172a;
+        }
 
-.card-title{
-  font-size:14px;
-  margin-bottom:5px;
-}
+        /* special section for "Offered Items" heading */
+        .offered-headline {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin: 40px 0 20px 0;
+        }
+        .offered-headline h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            background: #fef3c7;
+            padding: 6px 28px;
+            border-radius: 60px;
+            display: inline-block;
+            letter-spacing: -0.3px;
+        }
+        .offered-headline .line {
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24, #e9edf2);
+            border-radius: 6px;
+        }
 
-.price{
-  color:#6c5ce7;
-  font-weight:600;
-}
+        /* extra offered items row (Ghana Ghee repeated as dummy) */
+        .dummy-hint {
+            color: #a0aec0;
+            text-align: right;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border-top: 2px dashed #d1d5db;
+            padding-top: 20px;
+        }
 
-.btn{
-  margin-top:8px;
-  display:block;
-  text-align:center;
-  padding:6px;
-  background:#6c5ce7;
-  color:white;
-  border-radius:10px;
-  font-size:13px;
-}
-
-/* FOOTER */
-footer{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.05);
-}
-
-footer div{
-  text-align:center;
-  font-size:12px;
-  color:#555;
-}
-
-</style>
+        /* responsive touches */
+        @media (max-width: 700px) {
+            .sale-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+            }
+            .shop-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .category-strip {
+                border-radius: 30px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="shop-card">
+        <!-- header: RASESHOP + search -->
+        <div class="shop-header">
+            <div class="logo">
+                <h1>RASE<span>SHOP</span></h1>
+            </div>
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for products...">
+                </div>
+            </div>
+        </div>
 
-<header>
-  <div class="logo">ShopX</div>
-  <div class="search"><input type="text" placeholder="Search..."></div>
-  <div>🛒</div>
-</header>
+        <!-- BIG SALE block exactly as described -->
+        <div class="sale-banner">
+            <div class="sale-text">
+                <h2>Big Sale <span>Up to 50% OFF</span></h2>
+                <p><i class="fas fa-tag" style="margin-right: 8px;"></i> Limited time only</p>
+            </div>
+            <button class="shop-now-btn"><i class="fas fa-bolt"></i> Shop Now</button>
+        </div>
 
-<section class="hero">
-  <h1>Big Sale 2026 🔥</h1>
-  <p>Up to 50% off on trending products</p>
-</section>
+        <!-- category strip (men's wear, offered, shoes, socks, best selling, bags) -->
+        <div class="category-strip">
+            <span class="cat-item bold"><i class="fas fa-shirt"></i> Men's Wear</span>
+            <span class="cat-item highlight">Offered Items</span>
+            <span class="cat-item"><i class="fas fa-shoe-prints"></i> Shoes</span>
+            <span class="cat-item"><i class="fas fa-socks"></i> Socks</span>
+            <span class="cat-item bold">Best Selling</span>
+            <span class="cat-item"><i class="fas fa-shopping-bag"></i> Bags</span>
+        </div>
 
-<div class="categories">
-  <div class="cat">Fashion</div>
-  <div class="cat">Electronics</div>
-  <div class="cat">Shoes</div>
-  <div class="cat">Watch</div>
-  <div class="cat">Beauty</div>
-</div>
+        <!-- product grid : Sundarban Honey & Gawa Ghee (exact match from description) -->
+        <div class="product-grid">
+            <!-- Sundarban Honey 1kg card -->
+            <div class="product-card">
+                <div class="product-title">🍯 Sundarban Honey 1kg</div>
+                <div class="product-sub">pure forest honey · organic</div>
+                <div class="price-block">
+                    <span class="current-price">£2,200</span>
+                    <span class="old-price">£2,500</span>
+                    <span class="save-badge">Save £300</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
 
-<section class="products">
+            <!-- Gawa Ghee 1kg (original) -->
+            <div class="product-card">
+                <div class="product-title">🧈 Gawa Ghee 1kg</div>
+                <div class="product-sub">pure cow desi ghee · A2</div>
+                <div class="price-block">
+                    <span class="current-price">£1,710</span>
+                    <span class="old-price">£1,800</span>
+                    <span class="save-badge">Save £90</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
 
-  <div class="card">
-    <img src="https://picsum.photos/200/200?1">
-    <div class="card-body">
-      <div class="card-title">Smart Watch</div>
-      <div class="price">$49</div>
-      <div class="btn">Add to Cart</div>
+            <!-- dummy third card to make grid feel fuller (exactly same style, "Offered Items" as category hint) -->
+            <div class="product-card">
+                <div class="product-title">🍚 Miniket Rice 5kg</div>
+                <div class="product-sub">Offered Items · premium</div>
+                <div class="price-block">
+                    <span class="current-price">£1,250</span>
+                    <span class="old-price">£1,450</span>
+                    <span class="save-badge">Save £200</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
+        </div>
+
+        <!-- separate offered items line: exactly "Offered Items · Ghana Ghee 1kg" from the bottom -->
+        <div class="offered-headline">
+            <h3>Offered Items</h3>
+            <div class="line"></div>
+        </div>
+
+        <!-- small product row (Ghana Ghee with same price style) – keeping consistent with jpeg description -->
+        <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 10px;">
+            <!-- Ghana Ghee 1kg card (explicitly as mentioned in bottom text) -->
+            <div class="product-card" style="max-width: 320px; flex: 1 1 280px;">
+                <div class="product-title">🧈 Ghana Ghee 1kg</div>
+                <div class="product-sub">grass-fed · aromatic</div>
+                <div class="price-block">
+                    <span class="current-price">£1,710</span>
+                    <span class="old-price">£1,800</span>
+                    <span class="save-badge">Save £90</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
+            <!-- duplicate card for visual balance (dummy offered item) -->
+            <div class="product-card" style="max-width: 320px; flex: 1 1 280px; background: #fcf8f0;">
+                <div class="product-title">👜 Leather Bag</div>
+                <div class="product-sub">Best Selling · 40% off</div>
+                <div class="price-block">
+                    <span class="current-price">£2,990</span>
+                    <span class="old-price">£4,200</span>
+                    <span class="save-badge">Save £1,210</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
+            <!-- extra socks dummy (because category strip shows socks) -->
+            <div class="product-card" style="max-width: 320px; flex: 1 1 280px;">
+                <div class="product-title">🧦 Wool Socks (3 pair)</div>
+                <div class="product-sub">Offered Items · winter</div>
+                <div class="price-block">
+                    <span class="current-price">£450</span>
+                    <span class="old-price">£650</span>
+                    <span class="save-badge">Save £200</span>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add To Cart</button>
+            </div>
+        </div>
+
+        <!-- small dummy hint: exactly the last line from image description repeated -->
+        <div class="dummy-hint">
+            <i class="fas fa-tag" style="color:#d97706;"></i> Offered Items: Ghana Ghee 1kg  |  £1,710 £1,800  Save £90  (as shown in original)
+        </div>
+
+        <!-- extra micro detail: "Best Selling · Bags" faint mention (but it's already in category strip) -->
+        <div style="margin-top: 16px; color: #94a3b8; font-size: 0.85rem; display: flex; gap: 16px; flex-wrap: wrap;">
+            <span>🔥 Men's Wear</span>
+            <span>•</span>
+            <span>🧴 Best Selling</span>
+            <span>•</span>
+            <span>👜 Bags</span>
+            <span>•</span>
+            <span>🧦 Socks</span>
+        </div>
     </div>
-  </div>
-
-  <div class="card">
-    <img src="https://picsum.photos/200/200?2">
-    <div class="card-body">
-      <div class="card-title">Sneakers</div>
-      <div class="price">$79</div>
-      <div class="btn">Add to Cart</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="https://picsum.photos/200/200?3">
-    <div class="card-body">
-      <div class="card-title">Headphone</div>
-      <div class="price">$29</div>
-      <div class="btn">Add to Cart</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="https://picsum.photos/200/200?4">
-    <div class="card-body">
-      <div class="card-title">T-Shirt</div>
-      <div class="price">$19</div>
-      <div class="btn">Add to Cart</div>
-    </div>
-  </div>
-
-</section>
-
-<footer>
-  <div>🏠<br>Home</div>
-  <div>🔍<br>Search</div>
-  <div>❤️<br>Wishlist</div>
-  <div>👤<br>Account</div>
-</footer>
-
 </body>
 </html>
