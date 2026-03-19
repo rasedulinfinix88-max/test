@@ -2,79 +2,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Commerce Landing Page</title>
+  <title>App Style E-commerce</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
-    body{background:#f5f5f5;color:#333;}
-    header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#111;color:#fff;}
-    header h1{font-size:22px;}
-    nav a{color:#fff;margin-left:15px;text-decoration:none;font-size:14px;}.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:80vh;background:linear-gradient(135deg,#111,#444);color:#fff;padding:20px;}
-.hero h2{font-size:36px;margin-bottom:10px;}
-.hero p{font-size:16px;margin-bottom:20px;}
-.hero button{padding:12px 25px;border:none;background:#ff4d4d;color:#fff;font-size:16px;border-radius:5px;cursor:pointer;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui, -apple-system, sans-serif;}
+    body{background:#0f0f0f;color:#fff;}/* App Container */
+.app{max-width:420px;margin:auto;min-height:100vh;background:#181818;display:flex;flex-direction:column;}
 
-.products{padding:40px 20px;}
-.products h2{text-align:center;margin-bottom:20px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+/* Header */
+.header{padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+.header h1{font-size:20px;}
 
-.card{background:#fff;padding:15px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:center;}
-.card img{width:100%;border-radius:10px;}
-.card h3{margin:10px 0;font-size:18px;}
-.card p{font-size:14px;color:#777;}
-.card button{margin-top:10px;padding:10px 20px;border:none;background:#111;color:#fff;border-radius:5px;cursor:pointer;}
+/* Search */
+.search{padding:0 20px;margin-bottom:10px;}
+.search input{width:100%;padding:10px;border-radius:10px;border:none;background:#2a2a2a;color:#fff;}
 
-footer{background:#111;color:#fff;text-align:center;padding:15px;margin-top:30px;}
+/* Banner */
+.banner{margin:10px 20px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#ff4d4d,#ff884d);}
+.banner h2{font-size:18px;margin-bottom:5px;}
+.banner p{font-size:13px;opacity:0.9;}
 
-@media(max-width:600px){
-  .hero h2{font-size:26px;}
-}
+/* Categories */
+.categories{display:flex;overflow-x:auto;padding:10px 15px;gap:10px;}
+.cat{background:#2a2a2a;padding:10px 15px;border-radius:20px;font-size:12px;white-space:nowrap;}
+
+/* Products */
+.products{flex:1;padding:15px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+
+.card{background:#222;border-radius:15px;padding:10px;}
+.card img{width:100%;border-radius:10px;margin-bottom:8px;}
+.card h3{font-size:14px;margin-bottom:3px;}
+.price{font-size:13px;color:#ff884d;}
+
+/* Bottom Nav */
+.bottom-nav{display:flex;justify-content:space-around;padding:10px;background:#111;border-top:1px solid #333;}
+.bottom-nav div{font-size:12px;text-align:center;opacity:0.7;}
 
   </style>
 </head>
-<body><header>
-  <h1>MyShop</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Cart</a>
-    <a href="#">Login</a>
-  </nav>
-</header><section class="hero">
-  <h2>Best Products Online</h2>
-  <p>Shop the latest trends at unbeatable prices</p>
-  <button>Shop Now</button>
-</section><section class="products">
-  <h2>Featured Products</h2>
-  <div class="grid"><div class="card">
-  <img src="https://via.placeholder.com/200" alt="product">
-  <h3>Product 1</h3>
-  <p>$25.00</p>
-  <button>Add to Cart</button>
+<body><div class="app">  <div class="header">
+    <h1>MyShop</h1>
+    <span>🛒</span>
+  </div>  <div class="search">
+    <input type="text" placeholder="Search products...">
+  </div>  <div class="banner">
+    <h2>🔥 Big Sale</h2>
+    <p>Up to 50% off today</p>
+  </div>  <div class="categories">
+    <div class="cat">All</div>
+    <div class="cat">Fashion</div>
+    <div class="cat">Electronics</div>
+    <div class="cat">Shoes</div>
+    <div class="cat">Beauty</div>
+  </div>  <div class="products"><div class="card">
+  <img src="https://via.placeholder.com/150">
+  <h3>Sneakers</h3>
+  <div class="price">$45</div>
 </div>
 
 <div class="card">
-  <img src="https://via.placeholder.com/200" alt="product">
-  <h3>Product 2</h3>
-  <p>$40.00</p>
-  <button>Add to Cart</button>
+  <img src="https://via.placeholder.com/150">
+  <h3>Watch</h3>
+  <div class="price">$60</div>
 </div>
 
 <div class="card">
-  <img src="https://via.placeholder.com/200" alt="product">
-  <h3>Product 3</h3>
-  <p>$30.00</p>
-  <button>Add to Cart</button>
+  <img src="https://via.placeholder.com/150">
+  <h3>T-Shirt</h3>
+  <div class="price">$20</div>
 </div>
 
 <div class="card">
-  <img src="https://via.placeholder.com/200" alt="product">
-  <h3>Product 4</h3>
-  <p>$55.00</p>
-  <button>Add to Cart</button>
+  <img src="https://via.placeholder.com/150">
+  <h3>Headphones</h3>
+  <div class="price">$80</div>
 </div>
 
-  </div>
-</section><footer>
-  <p>© 2026 MyShop. All rights reserved.</p>
-</footer></body>
+  </div>  <div class="bottom-nav">
+    <div>🏠<br>Home</div>
+    <div>❤️<br>Wishlist</div>
+    <div>🛍️<br>Shop</div>
+    <div>👤<br>Profile</div>
+  </div></div></body>
 </html>
