@@ -3,162 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Shop Layout</title>
+    <title>Product Card Layout</title>
     <style>
-        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: #ffffff; /* আপনার অনুরোধ অনুযায়ী সাদা ব্যাকগ্রাউন্ড */
+            background-color: #ffffff; /* সাদা ব্যাকগ্রাউন্ড */
             padding: 20px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 400px; /* মোবাইল ভিউ এর জন্য */
             margin: 0 auto;
         }
 
-        h2 {
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
             font-style: italic;
             text-transform: uppercase;
             border-bottom: 2px solid #333;
             display: inline-block;
-            margin-bottom: 25px;
-            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
 
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
+        /* কার্ডের মূল অংশ */
+        .card {
             background: #fff;
             border: 1px solid #eee;
+            margin-bottom: 30px;
             position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Badge/Discount */
-        .badge {
+        /* ডিসকাউন্ট ব্যাজ */
+        .discount-badge {
             position: absolute;
             top: 0;
             right: 0;
-            background: #ff4757;
+            background: #ff4d4d;
             color: white;
-            padding: 5px 12px;
-            font-weight: bold;
+            padding: 5px 15px;
             font-size: 14px;
-            z-index: 10;
+            font-weight: bold;
+            z-index: 1;
         }
 
-        .product-image {
+        /* ইমেজ সেকশন */
+        .image-placeholder {
             width: 100%;
             height: 250px;
-            background-color: #f9f9f9;
+            background-color: #fcfcfc;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #777;
         }
 
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-
-        /* Product Info */
-        .product-info {
-            padding: 15px;
-            background: #1a1a2e; /* ইউনিক কালার: ডার্ক নেভি */
+        /* ইনফো সেকশন */
+        .info-box {
+            background: #1a1c2c; /* ছবির মত গাঢ় নীল ব্যাকগ্রাউন্ড */
             color: white;
+            padding: 15px;
         }
 
-        .rating {
+        .rating-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .stars {
             color: #ff9f43;
+            font-size: 14px;
+        }
+
+        .review-count {
+            color: #888;
             font-size: 12px;
-            margin-bottom: 5px;
         }
 
-        .reviews {
-            color: #999;
-            font-size: 11px;
-            float: right;
-        }
-
-        .product-name {
-            font-size: 16px;
+        .product-title {
+            font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
-            margin: 10px 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .price-area {
-            margin-bottom: 15px;
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .current-price {
-            color: #ffca28; /* গোল্ডেন/হলুদ টেক্সট */
-            font-size: 20px;
+            color: #ffcc00; /* হলুদ প্রাইস */
+            font-size: 22px;
             font-weight: bold;
-            margin-right: 10px;
         }
 
         .old-price {
             text-decoration: line-through;
-            color: #777;
+            color: #666;
             font-size: 14px;
         }
 
-        /* Buttons Section */
-        .button-group {
+        /* বাটন সেকশন */
+        .btn-container {
             display: flex;
-            width: 100%;
         }
 
         .btn {
             flex: 1;
-            padding: 12px;
+            padding: 15px;
             border: none;
-            cursor: pointer;
-            font-weight: bold;
             text-transform: uppercase;
-            font-size: 12px;
-            transition: 0.3s;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
         }
 
-        .btn-add {
-            background-color: #e84118; /* আপনার অনুরোধ অনুযায়ী লাল বাটন */
+        .btn-cart {
+            background-color: #f15a24; /* লাল/কমলা অ্যাড টু কার্ট */
             color: white;
         }
 
-        .btn-add:hover {
-            background-color: #c23616;
-        }
-
         .btn-details {
-            background-color: #fbc531; /* আপনার অনুরোধ অনুযায়ী হলুদ বাটন */
+            background-color: #ffcc29; /* হলুদ ডিটেইলস বাটন */
             color: #000;
-        }
-
-        .btn-details:hover {
-            background-color: #e1b12c;
         }
 
     </style>
@@ -166,47 +145,49 @@
 <body>
 
 <div class="container">
-    <h2>Our Products</h2>
+    <h2 class="heading">OUR PRODUCTS</h2>
 
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="badge">21% OFF</div>
-            <div class="product-image">
-                <img src="https://via.placeholder.com/300x300?text=Handbag" alt="Handbag">
+    <div class="card">
+        <div class="discount-badge">21% OFF</div>
+        <div class="image-placeholder">
+            <span>[IMAGE HERE]</span>
+        </div>
+        <div class="info-box">
+            <div class="rating-row">
+                <span class="stars">★★★★☆</span>
+                <span class="review-count">112 REVIEWS</span>
             </div>
-            <div class="product-info">
-                <span class="reviews">112 REVIEWS</span>
-                <div class="rating">★★★★☆</div>
-                <div class="product-name">Luxury Leather Handbag</div>
-                <div class="price-area">
-                    <span class="current-price">TK. 95</span>
-                    <span class="old-price">TK. 120</span>
-                </div>
-            </div>
-            <div class="button-group">
-                <button class="btn btn-add">Add To Cart</button>
-                <button class="btn btn-details">Details</button>
+            <span class="product-title">LUXURY LEATHER HANDBAG</span>
+            <div class="price-row">
+                <span class="current-price">TK. 95</span>
+                <span class="old-price">TK. 120</span>
             </div>
         </div>
+        <div class="btn-container">
+            <button class="btn btn-cart">ADD TO CART</button>
+            <button class="btn btn-details">DETAILS</button>
+        </div>
+    </div>
 
-        <div class="product-card">
-            <div class="badge">18% OFF</div>
-            <div class="product-image">
-                <img src="https://via.placeholder.com/300x300?text=Watch" alt="Watch">
+    <div class="card">
+        <div class="discount-badge">18% OFF</div>
+        <div class="image-placeholder">
+            <span>[IMAGE HERE]</span>
+        </div>
+        <div class="info-box">
+            <div class="rating-row">
+                <span class="stars">★★★★☆</span>
+                <span class="review-count">112 REVIEWS</span>
             </div>
-            <div class="product-info">
-                <span class="reviews">112 REVIEWS</span>
-                <div class="rating">★★★★☆</div>
-                <div class="product-name">Classic Gold Watch</div>
-                <div class="price-area">
-                    <span class="current-price">TK. 180</span>
-                    <span class="old-price">TK. 220</span>
-                </div>
+            <span class="product-title">CLASSIC GOLD WATCH</span>
+            <div class="price-row">
+                <span class="current-price">TK. 180</span>
+                <span class="old-price">TK. 220</span>
             </div>
-            <div class="button-group">
-                <button class="btn btn-add">Add To Cart</button>
-                <button class="btn btn-details">Details</button>
-            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-cart">ADD TO CART</button>
+            <button class="btn btn-details">DETAILS</button>
         </div>
     </div>
 </div>
